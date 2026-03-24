@@ -1,0 +1,388 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.page { padding: 28px 32px 36px; }
+.page-title { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+.page-sub { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 20px; }
+.divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin-bottom: 20px; }
+
+.layer { border: 0.5px solid; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+.layer-header { display: flex; align-items: center; gap: 10px; padding: 9px 14px; }
+.layer-num { font-size: 11px; font-weight: 500; border-radius: 20px; padding: 2px 9px; }
+.layer-title { font-size: 13px; font-weight: 500; }
+.layer-meta { font-size: 11px; margin-left: auto; opacity: 0.75; }
+.layer-body { padding: 12px 14px; display: grid; gap: 5px; }
+.layer-row { display: flex; gap: 10px; font-size: 12px; }
+.layer-label { color: var(--color-text-tertiary); min-width: 84px; flex-shrink: 0; }
+.layer-val { color: var(--color-text-primary); line-height: 1.5; }
+
+/* Laag 1 — Groen */
+.l1 { border-color: #0F6E56; background: #F0FBF6; }
+.l1 .layer-header { background: #E1F5EE; }
+.l1 .layer-num { background: #0F6E56; color: #fff; }
+.l1 .layer-title { color: #085041; }
+.l1 .layer-meta { color: #0F6E56; }
+
+/* Laag 2 — Amber */
+.l2 { border-color: #B07D1A; background: #FEFBF0; }
+.l2 .layer-header { background: #FDF3D4; }
+.l2 .layer-num { background: #B07D1A; color: #fff; }
+.l2 .layer-title { color: #7A5510; }
+.l2 .layer-meta { color: #B07D1A; }
+
+/* Laag 3 — Navy */
+.l3 { border-color: #1A3A6B; background: #F0F4FA; }
+.l3 .layer-header { background: #D9E5F7; }
+.l3 .layer-num { background: #1A3A6B; color: #fff; }
+.l3 .layer-title { color: #122B52; }
+.l3 .layer-meta { color: #1A3A6B; }
+
+/* Cost Cap uitzondering — Blauw */
+.l-exception { border-color: #1877F2; background: #F0F6FF; border-style: dashed; }
+.l-exception .layer-header { background: #E0EDFF; }
+.l-exception .layer-num { background: #1877F2; color: #fff; }
+.l-exception .layer-title { color: #0D5DBF; }
+.l-exception .layer-meta { color: #1877F2; }
+
+/* Regel-blokken */
+.rules-block { margin: 0; border-top: 0.5px solid; padding: 10px 14px; display: grid; gap: 5px; }
+.l2 .rules-block  { border-color: #E8C96A; background: #FFFBEE; }
+.l3 .rules-block  { border-color: #8AAAD4; background: #EBF0F8; }
+.l-exception .rules-block { border-color: #90BBFA; background: #EEF5FF; }
+.rules-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.l2 .rules-title  { color: #7A5510; }
+.l3 .rules-title  { color: #122B52; }
+.l-exception .rules-title { color: #0D5DBF; }
+.rule-row { display: flex; gap: 8px; font-size: 11px; align-items: flex-start; }
+.rule-icon { flex-shrink: 0; margin-top: 1px; }
+.rule-text { color: var(--color-text-primary); line-height: 1.5; }
+.rule-text strong { font-weight: 500; }
+
+/* Upgrade banners */
+.upgrade-banner { margin: 0; border-top: 0.5px solid; padding: 8px 14px; display: flex; align-items: flex-start; gap: 8px; font-size: 11px; line-height: 1.5; }
+.l2 .upgrade-banner { border-color: #E8C96A; background: #FDF3D4; color: #7A5510; }
+.l-exception .upgrade-banner { border-color: #90BBFA; background: #E0EDFF; color: #0D5DBF; }
+
+/* Uitzondering blok */
+.exception-wrap { margin: 10px 0 4px; }
+.exception-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-tertiary); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.exception-label::before, .exception-label::after { content: ''; flex: 1; border-top: 0.5px dashed var(--color-border-tertiary); }
+
+/* Voorbeeld blok */
+.example-box { border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-background-secondary); padding: 12px 14px; margin-top: 8px; }
+.example-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-tertiary); margin-bottom: 8px; }
+.example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.example-item { display: flex; flex-direction: column; gap: 3px; }
+.example-item-label { font-size: 10px; color: var(--color-text-tertiary); }
+.example-item-val { font-size: 12px; color: var(--color-text-primary); line-height: 1.5; }
+.example-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 8px 0; }
+.example-full { font-size: 12px; color: var(--color-text-primary); line-height: 1.6; }
+
+@media (prefers-color-scheme: dark) {
+  .l1 { border-color: #1D9E75; background: #04342C; }
+  .l1 .layer-header { background: #085041; }
+  .l1 .layer-num { background: #1D9E75; color: #04342C; }
+  .l1 .layer-title { color: #9FE1CB; }
+  .l1 .layer-meta { color: #5DCAA5; }
+  .l2 { border-color: #D4A030; background: #2E1F00; }
+  .l2 .layer-header { background: #4A3300; }
+  .l2 .layer-num { background: #D4A030; color: #2E1F00; }
+  .l2 .layer-title { color: #F5D98A; }
+  .l2 .layer-meta { color: #D4A030; }
+  .l2 .upgrade-banner { border-color: #B07D1A; background: #4A3300; color: #F5D98A; }
+  .l2 .rules-block { border-color: #B07D1A; background: #3A2800; }
+  .l2 .rules-title { color: #F5D98A; }
+  .l3 { border-color: #4A7BC4; background: #0A1628; }
+  .l3 .layer-header { background: #122B52; }
+  .l3 .layer-num { background: #4A7BC4; color: #0A1628; }
+  .l3 .layer-title { color: #B3CCEE; }
+  .l3 .layer-meta { color: #7AAAE0; }
+  .l3 .rules-block { border-color: #4A7BC4; background: #081020; }
+  .l3 .rules-title { color: #B3CCEE; }
+  .l-exception { border-color: #4A9BFF; background: #0A1F3D; }
+  .l-exception .layer-header { background: #0D2E5C; }
+  .l-exception .layer-num { background: #4A9BFF; color: #0A1F3D; }
+  .l-exception .layer-title { color: #A8CFFF; }
+  .l-exception .layer-meta { color: #6AADFF; }
+  .l-exception .upgrade-banner { border-color: #1877F2; background: #0D2E5C; color: #A8CFFF; }
+  .l-exception .rules-block { border-color: #1877F2; background: #091828; }
+  .l-exception .rules-title { color: #A8CFFF; }
+}
+
+.arrow-row { display: flex; flex-direction: column; align-items: center; margin: 4px 0; gap: 4px; }
+.arrow-box { border: 0.5px dashed var(--color-border-secondary); border-radius: 8px; padding: 7px 18px; font-size: 11px; color: var(--color-text-secondary); text-align: center; line-height: 1.5; }
+.arrow-svg { color: var(--color-text-tertiary); }
+
+.insight-box { border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-background-secondary); padding: 14px 16px; margin-bottom: 12px; }
+.insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.insight-item { display: flex; flex-direction: column; gap: 3px; }
+.insight-label { font-size: 10px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; }
+.insight-val { font-size: 12px; color: var(--color-text-primary); line-height: 1.5; }
+.insight-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 10px 0; }
+.insight-full { font-size: 12px; color: var(--color-text-primary); line-height: 1.6; }
+
+.no-surf { border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-background-secondary); padding: 14px 16px; margin-bottom: 20px; }
+.no-surf-title { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+.no-surf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.no-surf-item { display: flex; flex-direction: column; gap: 3px; }
+.no-surf-label { font-size: 10px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; }
+.no-surf-val { font-size: 12px; color: var(--color-text-primary); line-height: 1.5; }
+
+.diff-box { border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; background: var(--color-background-secondary); padding: 14px 16px; margin-bottom: 20px; }
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.diff-item { display: flex; flex-direction: column; gap: 3px; }
+.diff-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 4px; }
+.diff-label-tt   { background: #F0FBF6; color: #085041; border: 0.5px solid #0F6E56; }
+.diff-label-meta { background: #E0EDFF; color: #0D5DBF; border: 0.5px solid #1877F2; }
+.diff-val { font-size: 12px; color: var(--color-text-primary); line-height: 1.5; }
+@media (prefers-color-scheme: dark) {
+  .diff-label-tt   { background: #085041; color: #9FE1CB; border-color: #1D9E75; }
+  .diff-label-meta { background: #0D2E5C; color: #A8CFFF; border-color: #4A9BFF; }
+}
+
+.section-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 20px 0 10px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+thead tr { background: var(--color-background-secondary); }
+th { font-weight: 500; color: var(--color-text-secondary); padding: 7px 10px; text-align: left; font-size: 11px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--color-background-secondary); }
+
+.badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
+.b-green  { background: #E1F5EE; color: #085041; }
+.b-amber  { background: #FDF3D4; color: #7A5510; }
+.b-blue   { background: #E0EDFF; color: #0D5DBF; }
+.b-navy   { background: #D9E5F7; color: #122B52; }
+.b-gray   { background: #F1EFE8; color: #444441; }
+.b-red    { background: #FCEBEB; color: #791F1F; }
+@media (prefers-color-scheme: dark) {
+  .b-green  { background: #085041; color: #9FE1CB; }
+  .b-amber  { background: #4A3300; color: #F5D98A; }
+  .b-blue   { background: #0D2E5C; color: #A8CFFF; }
+  .b-navy   { background: #122B52; color: #B3CCEE; }
+  .b-gray   { background: #444441; color: #D3D1C7; }
+  .b-red    { background: #791F1F; color: #F7C1C1; }
+}
+.tbl-wrap { border: 0.5px solid var(--color-border-tertiary); border-radius: 10px; overflow: hidden; }
+</style>
+
+<div class="page">
+  <div class="page-title">Meta Ads Strategie — STACK BRANDS</div>
+  <div class="page-sub">Drie-lagen scaling structuur · versie maart 2026</div>
+  <hr class="divider">
+
+  <!-- LAAG 1 -->
+  <div class="layer l1">
+    <div class="layer-header">
+      <span class="layer-num">Laag 1</span>
+      <span class="layer-title">Test</span>
+      <span class="layer-meta">Catalog prospecting campagne · €150/dag · geen cap</span>
+    </div>
+    <div class="layer-body">
+      <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Alle nieuwe producten testen via catalog feed (Meta + TikTok + Pinterest)</span></div>
+      <div class="layer-row"><span class="layer-label">Signalen</span><span class="layer-val">Growth Spotter toont vroege tractie op store niveau — product stijgt week-over-week in verkopen</span></div>
+      <div class="layer-row"><span class="layer-label">Actie</span><span class="layer-val">Product met tractie → losse open CBO aanmaken in Laag 2 voor Meta-specifieke validatie met eigen creatives</span></div>
+      <div class="layer-row"><span class="layer-label">Beperking</span><span class="layer-val">Catalog data toont geen productspecifieke CPA — onvoldoende basis om direct een bid cap in te stellen</span></div>
+    </div>
+  </div>
+
+  <div class="arrow-row">
+    <svg class="arrow-svg" width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 0v8M4 4l4 5 4-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="arrow-box">Criterium: tractie zichtbaar in Growth Spotter rapport</div>
+    <svg class="arrow-svg" width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 0v8M4 4l4 5 4-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <!-- LAAG 2 -->
+  <div class="layer l2">
+    <div class="layer-header">
+      <span class="layer-num">Laag 2</span>
+      <span class="layer-title">Validatie</span>
+      <span class="layer-meta">Open CBO · €100–500/dag · geen cap · 5 ads · standaard route</span>
+    </div>
+    <div class="layer-body">
+      <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Meta-specifieke CPA, ROAS en conversion rate in kaart brengen — vrij van elke kostenrem zodat het algoritme ongehinderd leert én de leerfase (50 purchases) wordt afgerond</span></div>
+      <div class="layer-row"><span class="layer-label">Budget</span><span class="layer-val">Start op €100/dag — schaal gecontroleerd op bij goede performance. Maximum in deze laag is €500/dag. Boven €500 ben je meer aan het schalen dan aan het valideren; zodra je 50 purchases hebt ga je toch naar Laag 3</span></div>
+      <div class="layer-row"><span class="layer-label">Setup</span><span class="layer-val">5 ads per ad set — combinatie van video's en carousels · breed publiek · Advantage+ placements · geen interest targeting</span></div>
+      <div class="layer-row"><span class="layer-label">Meet</span><span class="layer-val">CPA, ROAS, CPC, add-to-cart rate, purchase conversion rate — dit zijn de inputcijfers voor de Bid Cap in Laag 3</span></div>
+      <div class="layer-row"><span class="layer-label">Isolatie</span><span class="layer-val">Één product per campagne — nooit meerdere producten in dezelfde CBO, anders is de CPA data onbruikbaar als basis voor de bid</span></div>
+    </div>
+    <div class="rules-block">
+      <div class="rules-title">Regels voor deze laag</div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Geen cap instellen</strong> — geen cost cap, geen bid cap. Een rem vertraagt het leerproces en vervuilt de CPA data die je nodig hebt voor Laag 3</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Schalen mag — maar maximaal 50% per stap</strong> — verhoog het budget maximaal één keer per 2–3 dagen en nooit meer dan 50% per stap. Bij een grotere sprong herstart Meta de exploratiefase volledig</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>CPA bepaalt of je schaalt, niet de kalender</strong> — stijgt de CPA na een budgetverhoging en daalt niet terug binnen 48 uur, zet het budget terug naar de vorige stap. Daalt de CPA wel terug, niet ingrijpen</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Minimaal 5 aaneengesloten dagen</strong> — ook als 50 purchases eerder worden behaald. CPA over 2–3 dagen is geen betrouwbare basis voor een bid; je wilt de variatie over meerdere dagen meenemen</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Gemiddelde CPA = input voor Bid Cap</strong> — de gemiddelde CPA over de volledige looptijd van Laag 2 wordt de basis voor de bid in Laag 3</span></div>
+    </div>
+    <div style="padding: 10px 14px 0; border-top: 0.5px solid #E8C96A; background: #FFFBEE;">
+      <div class="rules-title" style="color: #7A5510; margin-bottom: 8px;">Schaalschema Laag 2 — budgetstappen op basis van CPA stabiliteit</div>
+      <table style="margin-bottom: 10px;">
+        <thead><tr><th>Dag</th><th>Budget</th><th>Trigger om te verhogen</th></tr></thead>
+        <tbody>
+          <tr><td>Dag 1–3</td><td><strong>€100/dag</strong></td><td>Startbudget — laat het algoritme stabiliseren, niet ingrijpen</td></tr>
+          <tr><td>Dag 3–4</td><td><strong>€150/dag</strong></td><td>CPA stabiel onder break-even over minimaal 3 dagen</td></tr>
+          <tr><td>Dag 5–6</td><td><strong>€225/dag</strong></td><td>CPA stabiel, spend pace goed (campagne geeft budget volledig uit)</td></tr>
+          <tr><td>Dag 7–8</td><td><strong>€300/dag</strong></td><td>CPA stabiel, richting 50 purchases</td></tr>
+          <tr><td>Dag 9+</td><td><strong>€500/dag</strong></td><td>Alleen als CPA nog steeds stabiel is én je al boven de 35 purchases zit — laatste purchases snel binnenhalen voor doorstroom naar Laag 3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="upgrade-banner">
+      <span style="font-weight:500;flex-shrink:0">Upgrade naar Laag 3:</span>
+      <span>≥ 50 purchases behaald (leerfase afgerond) én stabiele CPA over minimaal 5 aaneengesloten dagen. Beide criteria zijn vereist.</span>
+    </div>
+  </div>
+
+  <!-- UITZONDERING: COST CAP -->
+  <div class="exception-wrap">
+    <div class="exception-label">Uitzondering — wanneer gebruik je een Cost Cap tussenstap?</div>
+    <div class="layer l-exception">
+      <div class="layer-header">
+        <span class="layer-num">Uitzondering</span>
+        <span class="layer-title">Cost Cap tussenstap</span>
+        <span class="layer-meta">Alleen bij specifieke situaties · niet de standaard route</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-row"><span class="layer-label">Wanneer</span><span class="layer-val">Gebruik een Cost Cap tussenstap <strong>alleen</strong> als je geen open CBO validatiefase kunt of wilt draaien, maar toch de leerfase wilt afronden binnen een vaste marge</span></div>
+        <div class="layer-row"><span class="layer-label">Waarom niet standaard</span><span class="layer-val">De open CBO in Laag 2 verzamelt al alle data die je nodig hebt én rondt de leerfase af. Een Cost Cap daarna voegt een extra week toe zonder extra inzicht — je weet de CPA al</span></div>
+        <div class="layer-row"><span class="layer-label">Nadeel</span><span class="layer-val">Cost Cap vertraagt de doorstroom naar Laag 3 met gemiddeld een week. De hogere CPC ten opzichte van een open CBO is normaal maar het algoritme heeft minder vrijheid om te leren</span></div>
+      </div>
+      <div class="rules-block">
+        <div class="rules-title">Situaties waarbij de Cost Cap tussenstap wél zinvol is</div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Krappe marge, geen ruimte voor vrije testfase</strong> — elke aankoop boven break-even doet direct pijn en je kunt geen open CBO periode absorberen</span></div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Geen open CBO fase gedraaid</strong> — je hebt de validatiefase overgeslagen en wil toch gecontroleerd naar 50 purchases toewerken voordat je Bid Cap lanceert</span></div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Seizoensdruk waarbij elke dag telt</strong> — bijv. Q4 of een productlancering met deadline waarbij je niet eerst vrij kunt testen maar wel de leerfase moet afronden</span></div>
+      </div>
+      <div class="example-box" style="margin: 0; border-radius: 0; border: none; border-top: 0.5px solid #90BBFA;">
+        <div class="example-title">Concreet voorbeeld — wanneer je de Cost Cap route zou kiezen</div>
+        <div class="example-full">Je lanceert een nieuw product in november, twee weken voor Black Friday. Budget is beperkt tot €150/dag en de marge op het product is 28% — elke aankoop boven €38 is verlieslatend. Je kunt het je niet veroorloven om een week vrij te testen omdat de Black Friday periode te kort is. In dit geval start je direct met een Cost Cap op €35 (iets onder break-even), bouw je gecontroleerd naar 50 purchases, en switch je naar Bid Cap zodra de leerfase is afgerond — net op tijd voor de piekperiode.</div>
+        <div class="example-divider"></div>
+        <div class="example-full" style="color: var(--color-text-secondary);">In de normale situatie — ruime marge, geen tijdsdruk — is de open CBO in Laag 2 altijd de betere keuze. Je verzamelt dezelfde data, rondt dezelfde leerfase af, en bent een week eerder in Laag 3.</div>
+      </div>
+      <div class="upgrade-banner">
+        <span style="font-weight:500;flex-shrink:0">Na Cost Cap tussenstap:</span>
+        <span>Zodra ≥ 50 purchases zijn behaald en de CPA stabiel is over ≥ 5 dagen, direct doorstromen naar Laag 3 (Bid Cap). Cost Cap campagne pauzeren — niet verwijderen.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-row" style="margin-top: 10px;">
+    <svg class="arrow-svg" width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 0v8M4 4l4 5 4-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="arrow-box">Doorstroom criteria · ≥ 50 purchases (leerfase afgerond) · stabiele CPA over ≥ 5 aaneengesloten dagen · beide vereist</div>
+    <svg class="arrow-svg" width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 0v8M4 4l4 5 4-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <!-- LAAG 3 -->
+  <div class="layer l3">
+    <div class="layer-header">
+      <span class="layer-num">Laag 3</span>
+      <span class="layer-title">Schaling op hoog budget</span>
+      <span class="layer-meta">Bid Cap campagne · €1.000–10.000/dag · harde bid per veiling</span>
+    </div>
+    <div class="layer-body">
+      <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Elk bewezen product maximaal schalen met een harde grens op de veilingprijs — maximaal volume zonder margeverlies per conversie</span></div>
+      <div class="layer-row"><span class="layer-label">Budget</span><span class="layer-val">Direct hoog — start op €1.000/dag, schaal naar €10.000/dag zodra de CPA stabiel blijft. Geen handmatige dagelijkse aanpassingen nodig</span></div>
+      <div class="layer-row"><span class="layer-label">Bid Cap</span><span class="layer-val">Iets boven de gemiddelde CPA uit Laag 2 instellen (bijv. €35–38 bij een CPA van €32) om voldoende veilingvolume te garanderen — daarna geleidelijk aanscherpen richting target</span></div>
+      <div class="layer-row"><span class="layer-label">Mechanisme</span><span class="layer-val">Meta biedt agressief in elke veiling maar betaalt nooit meer dan de ingestelde bid — op slechte dagen stopt het spenden vanzelf zodra veilingen te duur worden</span></div>
+      <div class="layer-row"><span class="layer-label">Onderhoud</span><span class="layer-val">Wekelijks checken of de Bid Cap nog klopt met de veilingdynamiek — aanpassen als spend structureel achterblijft of CPA structureel boven target zit</span></div>
+    </div>
+    <div class="rules-block">
+      <div class="rules-title">Regels voor deze laag</div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Nooit starten zonder ≥ 50 purchases</strong> — onder de 50 heeft het algoritme onvoldoende veilingdata en levert het chronisch onder, ongeacht het budget</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Bid Cap iets boven CPA uit Laag 2 starten</strong> — te strak instellen bij lancering zorgt voor onderlevering. Begin ruim, scherp daarna aan op basis van data</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 2 campagne gepauzeerd houden</strong> — niet verwijderen. Als Laag 3 om welke reden dan ook niet levert, is de open CBO het directe vangnet</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Niet dagelijks ingrijpen op budget</strong> — het hoge budget is bewust. Laat Meta de spend zelf reguleren via de Bid Cap. Dagelijkse aanpassingen verstoren het algoritme</span></div>
+    </div>
+  </div>
+
+  <!-- SCALING INSIGHT -->
+  <div class="section-title">Waarom deze structuur inconsistente schaling oplost</div>
+  <div class="insight-box">
+    <div class="insight-grid">
+      <div class="insight-item">
+        <span class="insight-label">Oud probleem</span>
+        <span class="insight-val">Product handmatig naar hoog budget tillen → algoritme raakt in paniek → CPA explodeert → onduidelijk signaal</span>
+      </div>
+      <div class="insight-item">
+        <span class="insight-label">Gezamenlijke CBO vermeden</span>
+        <span class="insight-val">Product met laagste CPA pakt altijd de spend — winstgevende producten met iets hogere CPA worden genegeerd</span>
+      </div>
+    </div>
+    <hr class="insight-divider">
+    <div class="insight-full">Laag 2 heeft twee doelen tegelijk: de CPA in kaart brengen én de leerfase afronden. Zodra beide zijn bereikt, heeft het algoritme alle data die het nodig heeft om in Laag 3 op hoog budget efficiënt te bieden. De open CBO is de snelste en meest directe route — geen tussenstap nodig tenzij de situatie dat specifiek vereist.</div>
+  </div>
+
+  <!-- TIKTOK VS META -->
+  <div class="section-title">Verschil met TikTok: waarom Meta anders schaalt</div>
+  <div class="diff-box">
+    <div class="diff-grid">
+      <div class="diff-item">
+        <span class="diff-label diff-label-tt">TikTok — Laag 3</span>
+        <span class="diff-val">Cost Cap CBO op €1.000/dag. TikTok schaalt het budget organisch omhoog — dag 1 ~€80, dag 5 ~€300, dag 10 ~€600. De cost cap is tegelijk het leer- en schaalinstrument.</span>
+      </div>
+      <div class="diff-item">
+        <span class="diff-label diff-label-meta">Meta — Laag 3</span>
+        <span class="diff-val">Bid Cap campagne op €10.000/dag. Meta heeft de leerfase al afgerond in Laag 2. In Laag 3 is het doel puur volume pakken met een harde veilinggrens. Budget direct hoog, Bid Cap als rem.</span>
+      </div>
+    </div>
+    <hr class="insight-divider">
+    <div class="insight-full">Op TikTok fungeert de Cost Cap als zowel leer- als schaalinstrument in één fase. Op Meta zijn validatie (Laag 2) en maximale schaling (Laag 3) bewust gesplitst. De open CBO geeft het algoritme volledige vrijheid om te leren, waarna de Bid Cap op hoog budget die kennis exploiteert zonder dagelijkse interventie.</div>
+  </div>
+
+  <!-- NO SURF -->
+  <div class="no-surf">
+    <div class="no-surf-title">Geen dagelijks surf scalen meer nodig</div>
+    <div class="no-surf-grid">
+      <div class="no-surf-item">
+        <span class="no-surf-label">Vroeger</span>
+        <span class="no-surf-val">Dagelijks handmatig budget ophogen op goede dagen, verlagen op slechte dagen — constant monitoren en ingrijpen om niet te overspenden of kansen te missen</span>
+      </div>
+      <div class="no-surf-item">
+        <span class="no-surf-label">Nu</span>
+        <span class="no-surf-val">Budget staat op €10.000, Bid Cap ingesteld — Meta regelt het zelf. Op een goede dag pakt het alle goedkope veilingen, op een slechte dag stopt het zodra de veilingen te duur worden. Geen dagelijkse interventie nodig</span>
+      </div>
+    </div>
+    <hr class="insight-divider">
+    <div class="insight-full">De enige actie die nog nodig is: wekelijks checken of de Bid Cap nog klopt met de veilingdynamiek en nieuwe producten door de funnel sturen zodra Growth Spotter tractie signaleert.</div>
+  </div>
+
+  <!-- PRODUCT TABLE -->
+  <div class="section-title">Productoverzicht</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th style="text-align:right">CPA (7d)</th>
+          <th style="text-align:right">Purchases</th>
+          <th>Status</th>
+          <th style="text-align:center">Laag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Belladina – Romantic rose cascade</td>
+          <td style="text-align:right">€22.85</td>
+          <td style="text-align:right">10</td>
+          <td><span class="badge b-amber">Open CBO</span></td>
+          <td style="text-align:center">2</td>
+        </tr>
+        <tr>
+          <td>Product B</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">—</td>
+          <td><span class="badge b-gray">Te vroeg</span></td>
+          <td style="text-align:center">1</td>
+        </tr>
+        <tr>
+          <td>Overige producten</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">0</td>
+          <td><span class="badge b-red">Uitzetten</span></td>
+          <td style="text-align:center">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
