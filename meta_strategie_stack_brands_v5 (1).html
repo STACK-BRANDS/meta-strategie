@@ -278,21 +278,70 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
     <div class="layer-header">
       <span class="layer-num">Laag 3</span>
       <span class="layer-title">Schaling op hoog budget</span>
-      <span class="layer-meta">Bid Cap campagne · €1.000–10.000/dag · harde bid per veiling</span>
+      <span class="layer-meta">Bid Cap campagne · €1.000/dag per campagne · harde bid per veiling · meerdere angles</span>
     </div>
     <div class="layer-body">
       <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Elk bewezen product maximaal schalen met een harde grens op de veilingprijs — maximaal volume zonder margeverlies per conversie</span></div>
-      <div class="layer-row"><span class="layer-label">Budget</span><span class="layer-val">Direct hoog — start op €1.000/dag, schaal naar €10.000/dag zodra de CPA stabiel blijft. Geen handmatige dagelijkse aanpassingen nodig</span></div>
-      <div class="layer-row"><span class="layer-label">Bid Cap</span><span class="layer-val">Iets boven de gemiddelde CPA uit Laag 2 instellen (bijv. €35–38 bij een CPA van €32) om voldoende veilingvolume te garanderen — daarna geleidelijk aanscherpen richting target</span></div>
-      <div class="layer-row"><span class="layer-label">Mechanisme</span><span class="layer-val">Meta biedt agressief in elke veiling maar betaalt nooit meer dan de ingestelde bid — op slechte dagen stopt het spenden vanzelf zodra veilingen te duur worden</span></div>
-      <div class="layer-row"><span class="layer-label">Onderhoud</span><span class="layer-val">Wekelijks checken of de Bid Cap nog klopt met de veilingdynamiek — aanpassen als spend structureel achterblijft of CPA structureel boven target zit</span></div>
+      <div class="layer-row"><span class="layer-label">Setup</span><span class="layer-val">Nieuwe Bid Cap campagne per product · één ad set per campagne · startbudget €1.000/dag · Bid Cap ingesteld op basis van Laag 2 gemiddelde CPA</span></div>
+      <div class="layer-row"><span class="layer-label">Bid Cap</span><span class="layer-val">Instellen op Laag 2 gemiddelde CPA + 10–15% bij lancering (bijv. €35–37 bij een gemiddelde CPA van €32). Na 3–5 dagen kalibratie terugzetten naar het Laag 2 gemiddelde. Daarna niet meer aanpassen tenzij spend structureel achterblijft of CPA structureel boven target zit.</span></div>
+      <div class="layer-row"><span class="layer-label">Mechanisme</span><span class="layer-val">Meta biedt agressief in elke veiling maar betaalt nooit meer dan de ingestelde bid. Op dure dagen (weekend, feestdagen, hoge competitie) spendt de campagne minder of niet — dat is geen probleem, dat is het systeem dat werkt zoals bedoeld. Je betaalt nooit meer dan de gevalideerde CPA.</span></div>
+      <div class="layer-row"><span class="layer-label">Schaling</span><span class="layer-val">Hybride aanpak: budget verhogen binnen bewezen campagnes + nieuwe campagnes per angle toevoegen voor extra volume. Elke nieuwe campagne heeft een eigen creatieve invalshoek en dezelfde Bid Cap. Boven €2.000/dag per campagne liever een nieuwe campagne toevoegen dan verder verhogen.</span></div>
     </div>
-    <div class="rules-block">
-      <div class="rules-title">Regels voor deze laag</div>
+    <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
+      <div class="rules-title" style="color:#122B52;">Opbouwschema budget — stap voor stap</div>
+      <table style="font-size:11px;margin:4px 0 0;width:100%;border-collapse:collapse;">
+        <thead><tr style="background:#D9E5F7;"><th style="padding:4px 8px;text-align:left;">Fase</th><th style="padding:4px 8px;text-align:left;">Setup</th><th style="padding:4px 8px;text-align:left;">Totaal budget</th><th style="padding:4px 8px;text-align:left;">Trigger</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:4px 8px;">Start</td><td style="padding:4px 8px;">1 campagne · €1.000/dag · Bid Cap = Laag 2 gem. +10–15%</td><td style="padding:4px 8px;">€1.000/dag</td><td style="padding:4px 8px;">≥ 50 purchases gehaald in Laag 2, CPA stabiel ≥ 5 dagen</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 1</td><td style="padding:4px 8px;">Bid Cap terugzetten naar Laag 2 gemiddelde</td><td style="padding:4px 8px;">€1.000/dag</td><td style="padding:4px 8px;">Na 3–5 dagen kalibratie, spend stabiel</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 2</td><td style="padding:4px 8px;">Budget campagne 1 → €2.000/dag</td><td style="padding:4px 8px;">€2.000/dag</td><td style="padding:4px 8px;">CPA stabiel op €1.000, spend wordt volledig opgemaakt</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 3</td><td style="padding:4px 8px;">Nieuwe campagne · €1.000/dag · nieuwe angle · zelfde Bid Cap</td><td style="padding:4px 8px;">€3.000/dag</td><td style="padding:4px 8px;">Campagne 1 stabiel op €2.000</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 4+</td><td style="padding:4px 8px;">Elke bewezen campagne → €2.000+ · nieuwe campagnes per angle</td><td style="padding:4px 8px;">€4.000–€10.000+/dag</td><td style="padding:4px 8px;">Per campagne afzonderlijk beoordelen</td></tr>
+        </tbody>
+      </table>
+      <span style="display:block;margin-top:6px;font-size:11px;">Elke nieuwe campagne heeft een eigen creatieve invalshoek — niet dezelfde ads dupliceren, anders concurreren campagnes om hetzelfde publiek. Boven €2.000/dag per campagne: liever een nieuwe campagne toevoegen dan verder verhogen.</span>
+    </div>
+
+    <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
+      <div class="rules-title" style="color:#122B52;">Kill-criteria — wanneer een campagne stoppen</div>
+      <table style="font-size:11px;margin:4px 0 0;width:100%;border-collapse:collapse;">
+        <thead><tr style="background:#D9E5F7;"><th style="padding:4px 8px;text-align:left;">Situatie</th><th style="padding:4px 8px;text-align:left;">Wat het betekent</th><th style="padding:4px 8px;text-align:left;">Actie</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:4px 8px;">Campagne spendt structureel niet (meerdere dagen)</td><td style="padding:4px 8px;">Bid Cap te strak — veilingen zijn duurder dan de bid</td><td style="padding:4px 8px;">Bid Cap verhogen met €2–3. Als dit op goede dagen (ma–do) ook niet helpt: bid verder verhogen.</td></tr>
+          <tr><td style="padding:4px 8px;">CPA structureel 30%+ boven Laag 2 gemiddelde na dag 7</td><td style="padding:4px 8px;">Algoritme vindt geen efficiënt volume op die bid — markt is duurder geworden of creative is uitgewerkt</td><td style="padding:4px 8px;">Eerst nieuwe creatives testen. Daarna bid licht verhogen. Als geen verbetering: campagne pauzeren.</td></tr>
+          <tr><td style="padding:4px 8px;">ROAS structureel onder break-even na dag 7</td><td style="padding:4px 8px;">Campagne verlieslatend — Bid Cap werkt niet voor dit product op dit moment</td><td style="padding:4px 8px;">Campagne pauzeren. Laag 2 campagne heractiveren als vangnet. Evalueer of Laag 3 haalbaar is.</td></tr>
+          <tr><td style="padding:4px 8px;">Spend daalt op weekenddagen / feestdagen</td><td style="padding:4px 8px;">Normaal gedrag — veilingen zijn duurder, bid wordt niet gehaald</td><td style="padding:4px 8px;">Niet ingrijpen. Dit is het systeem dat werkt zoals bedoeld.</td></tr>
+        </tbody>
+      </table>
+      <span style="display:block;margin-top:6px;font-size:11px;">Volgorde van ingrijpen: (1) nieuwe creatives toevoegen → (2) Bid Cap licht verhogen → (3) campagne pauzeren en Laag 2 heractiveren. Nooit direct killen zonder eerst de bid aan te passen.</span>
+    </div>
+
+    <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
+      <div class="rules-title" style="color:#122B52;">Monitoring cadans — lopende campagnes</div>
+      <table style="font-size:11px;margin:4px 0 0;width:100%;border-collapse:collapse;">
+        <thead><tr style="background:#D9E5F7;"><th style="padding:4px 8px;text-align:left;">Frequentie</th><th style="padding:4px 8px;text-align:left;">Wat je checkt</th><th style="padding:4px 8px;text-align:left;">Drempel voor actie</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:4px 8px;">Dagelijks</td><td style="padding:4px 8px;">Spend, CPA, purchases</td><td style="padding:4px 8px;">Geen spend op weekenddagen: normaal. Geen spend op ma–do: bid te strak, verhoog met €2–3.</td></tr>
+          <tr><td style="padding:4px 8px;">Wekelijks</td><td style="padding:4px 8px;">CPA trend 7 dagen, CTR trend, frequency</td><td style="padding:4px 8px;">CPA stijgt &gt;20% week-over-week: creative refresh plannen.</td></tr>
+          <tr><td style="padding:4px 8px;">Maandelijks</td><td style="padding:4px 8px;">ROAS vs. break-even, welke campagnes presteren nog</td><td style="padding:4px 8px;">Campagnes die 2+ weken boven break-even CPA zitten: pauzeren.</td></tr>
+        </tbody>
+      </table>
+      <span style="display:block;margin-top:8px;font-size:11px;"><strong>Oorzaken van CPA-stijging na langere looptijd:</strong></span>
+      <ul style="margin-top:4px;font-size:11px;padding-left:14px;display:grid;gap:3px;">
+        <li><strong>Creative fatigue</strong> — ads zijn uitgewerkt, CTR daalt, Meta zoekt harder. Signaal: CPA stijgt geleidelijk, frequency stijgt. Actie: nieuwe creatives toevoegen aan de ad set.</li>
+        <li><strong>Seizoensvariatie</strong> — hogere CPM door meer competitie op de veiling (bijv. Q4, feestdagen). Signaal: CPA stijgt plotseling, CTR stabiel, CPM stijgt. Actie: Bid Cap tijdelijk verhogen met €2–3.</li>
+        <li><strong>Publiek verzadigd</strong> — algoritme heeft de meest converterende gebruikers al bereikt. Signaal: reach daalt, frequency stijgt sterk. Actie: nieuwe campagne met andere angle toevoegen.</li>
+      </ul>
+    </div>
+
+    <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
+      <div class="rules-title" style="color:#122B52;">Regels voor deze laag</div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Nooit starten zonder ≥ 50 purchases</strong> — onder de 50 heeft het algoritme onvoldoende veilingdata en levert het chronisch onder, ongeacht het budget</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Bid Cap iets boven CPA uit Laag 2 starten</strong> — te strak instellen bij lancering zorgt voor onderlevering. Begin ruim, scherp daarna aan op basis van data</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Bid Cap instellen op Laag 2 gemiddelde CPA + 10–15%</strong> — te strak instellen bij lancering zorgt voor onderlevering. Na 3–5 dagen kalibratie terugzetten naar het Laag 2 gemiddelde.</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Spend-dips op dure dagen zijn normaal</strong> — niet ingrijpen als de campagne op weekenddagen of feestdagen minder spendt. De Bid Cap werkt zoals bedoeld.</span></div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 2 campagne gepauzeerd houden</strong> — niet verwijderen. Als Laag 3 om welke reden dan ook niet levert, is de open CBO het directe vangnet</span></div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Niet dagelijks ingrijpen op budget</strong> — het hoge budget is bewust. Laat Meta de spend zelf reguleren via de Bid Cap. Dagelijkse aanpassingen verstoren het algoritme</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Schaling via meerdere campagnes per angle</strong> — boven €2.000/dag liever een nieuwe campagne met eigen creatieve invalshoek toevoegen dan het budget van één campagne eindeloos verhogen</span></div>
     </div>
   </div>
 
