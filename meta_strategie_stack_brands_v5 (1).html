@@ -183,7 +183,7 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Alle nieuwe producten testen via catalog feed (Meta + TikTok + Pinterest)</span></div>
       <div class="layer-row"><span class="layer-label">Signalen</span><span class="layer-val">Growth Spotter toont vroege tractie op store niveau — product stijgt week-over-week in verkopen</span></div>
       <div class="layer-row"><span class="layer-label">Actie</span><span class="layer-val">Product met tractie → losse open CBO aanmaken in Laag 2 voor Meta-specifieke validatie met eigen creatives</span></div>
-      <div class="layer-row"><span class="layer-label">Beperking</span><span class="layer-val">Catalog data toont geen productspecifieke CPA — onvoldoende basis om direct een bid cap in te stellen</span></div>
+      <div class="layer-row"><span class="layer-label">Beperking</span><span class="layer-val">Catalog data toont geen productspecifieke CPA — onvoldoende basis om direct een cost cap in te stellen</span></div>
     </div>
   </div>
 
@@ -204,7 +204,7 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Meta-specifieke CPA, ROAS en conversion rate in kaart brengen — vrij van elke kostenrem zodat het algoritme ongehinderd leert én de leerfase (50 purchases) wordt afgerond</span></div>
       <div class="layer-row"><span class="layer-label">Budget</span><span class="layer-val">Start op €100/dag — schaal gecontroleerd op bij goede performance. Maximum in deze laag is €500/dag. Boven €500 ben je meer aan het schalen dan aan het valideren; zodra je 50 purchases hebt ga je toch naar Laag 3</span></div>
       <div class="layer-row"><span class="layer-label">Setup</span><span class="layer-val">5 ads per ad set — combinatie van video's en carousels · breed publiek · Advantage+ placements · geen interest targeting</span></div>
-      <div class="layer-row"><span class="layer-label">Meet</span><span class="layer-val">CPA, ROAS, CPC, add-to-cart rate, purchase conversion rate — dit zijn de inputcijfers voor de Bid Cap in Laag 3</span></div>
+      <div class="layer-row"><span class="layer-label">Meet</span><span class="layer-val">CPA, ROAS, CPC, add-to-cart rate, purchase conversion rate — dit zijn de inputcijfers voor de Cost Cap in Laag 3</span></div>
       <div class="layer-row"><span class="layer-label">Isolatie</span><span class="layer-val">Één product per campagne — nooit meerdere producten in dezelfde CBO, anders is de CPA data onbruikbaar als basis voor de bid</span></div>
     </div>
     <div class="rules-block">
@@ -213,7 +213,7 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Schalen mag — maar maximaal 50% per stap</strong> — verhoog het budget maximaal één keer per 2–3 dagen en nooit meer dan 50% per stap. Bij een grotere sprong herstart Meta de exploratiefase volledig</span></div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>CPA bepaalt of je schaalt, niet de kalender</strong> — stijgt de CPA na een budgetverhoging en daalt niet terug binnen 48 uur, zet het budget terug naar de vorige stap. Daalt de CPA wel terug, niet ingrijpen</span></div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Minimaal 5 aaneengesloten dagen</strong> — ook als 50 purchases eerder worden behaald. CPA over 2–3 dagen is geen betrouwbare basis voor een bid; je wilt de variatie over meerdere dagen meenemen</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Gemiddelde CPA = input voor Bid Cap</strong> — de gemiddelde CPA over de volledige looptijd van Laag 2 wordt de basis voor de bid in Laag 3</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Gemiddelde CPA = input voor Cost Cap</strong> — de gemiddelde CPA over de volledige looptijd van Laag 2 wordt de basis voor de Cost Cap in Laag 3 (+ 10–15% bij lancering)</span></div>
     </div>
     <div style="padding: 10px 14px 0; border-top: 0.5px solid #E8C96A; background: #FFFBEE;">
       <div class="rules-title" style="color: #7A5510; margin-bottom: 8px;">Schaalschema Laag 2 — budgetstappen op basis van CPA stabiliteit</div>
@@ -234,35 +234,30 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
     </div>
   </div>
 
-  <!-- UITZONDERING: COST CAP -->
+  <!-- TRANSITIE: LAAG 2 NAAR LAAG 3 -->
   <div class="exception-wrap">
-    <div class="exception-label">Uitzondering — wanneer gebruik je een Cost Cap tussenstap?</div>
+    <div class="exception-label">Transitie — van Laag 2 naar Laag 3</div>
     <div class="layer l-exception">
       <div class="layer-header">
-        <span class="layer-num">Uitzondering</span>
-        <span class="layer-title">Cost Cap tussenstap</span>
-        <span class="layer-meta">Alleen bij specifieke situaties · niet de standaard route</span>
+        <span class="layer-num">Transitie</span>
+        <span class="layer-title">Laag 2 en Laag 3 draaien tijdelijk naast elkaar</span>
+        <span class="layer-meta">Laag 2 beschermt de omzet terwijl Laag 3 kalibreert</span>
       </div>
       <div class="layer-body">
-        <div class="layer-row"><span class="layer-label">Wanneer</span><span class="layer-val">Gebruik een Cost Cap tussenstap <strong>alleen</strong> als je geen open CBO validatiefase kunt of wilt draaien, maar toch de leerfase wilt afronden binnen een vaste marge</span></div>
-        <div class="layer-row"><span class="layer-label">Waarom niet standaard</span><span class="layer-val">De open CBO in Laag 2 verzamelt al alle data die je nodig hebt én rondt de leerfase af. Een Cost Cap daarna voegt een extra week toe zonder extra inzicht — je weet de CPA al</span></div>
-        <div class="layer-row"><span class="layer-label">Nadeel</span><span class="layer-val">Cost Cap vertraagt de doorstroom naar Laag 3 met gemiddeld een week. De hogere CPC ten opzichte van een open CBO is normaal maar het algoritme heeft minder vrijheid om te leren</span></div>
+        <div class="layer-row"><span class="layer-label">Wanneer starten</span><span class="layer-val">≥ 50 purchases behaald in Laag 2 én CPA stabiel over ≥ 5 aaneengesloten dagen. Lanceer de Laag 3 Cost Cap campagne op €1.000/dag — Laag 2 blijft actief.</span></div>
+        <div class="layer-row"><span class="layer-label">Waarom naast elkaar</span><span class="layer-val">Laag 3 spendt in de eerste dagen slechts een fractie van het budget (€50–€150/dag) terwijl het algoritme kalibreert. Laag 2 vangt de sales op die Laag 3 nog niet pakt. Zolang Laag 3 onder €300/dag spendt is de overlap met Laag 2 verwaarloosbaar.</span></div>
+        <div class="layer-row"><span class="layer-label">Wanneer Laag 2 pauzeren</span><span class="layer-val">Alle drie de volgende criteria moeten tegelijk behaald zijn: (1) Laag 3 heeft ≥ 20 purchases behaald, (2) CPA is stabiel onder de Cost Cap over ≥ 3 aaneengesloten dagen, (3) dagelijkse spend groeit richting €300+/dag. Pas dan pauzeer je Laag 2 — niet eerder.</span></div>
+        <div class="layer-row"><span class="layer-label">Laag 2 niet verwijderen</span><span class="layer-val">De gepauzeerde Laag 2 campagne is het directe vangnet. Als Laag 3 om welke reden dan ook stopt met leveren, heractiveer je Laag 2 direct — geen nieuwe campagne nodig, geen verlies van historische data.</span></div>
       </div>
       <div class="rules-block">
-        <div class="rules-title">Situaties waarbij de Cost Cap tussenstap wél zinvol is</div>
-        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Krappe marge, geen ruimte voor vrije testfase</strong> — elke aankoop boven break-even doet direct pijn en je kunt geen open CBO periode absorberen</span></div>
-        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Geen open CBO fase gedraaid</strong> — je hebt de validatiefase overgeslagen en wil toch gecontroleerd naar 50 purchases toewerken voordat je Bid Cap lanceert</span></div>
-        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Seizoensdruk waarbij elke dag telt</strong> — bijv. Q4 of een productlancering met deadline waarbij je niet eerst vrij kunt testen maar wel de leerfase moet afronden</span></div>
-      </div>
-      <div class="example-box" style="margin: 0; border-radius: 0; border: none; border-top: 0.5px solid #90BBFA;">
-        <div class="example-title">Concreet voorbeeld — wanneer je de Cost Cap route zou kiezen</div>
-        <div class="example-full">Je lanceert een nieuw product in november, twee weken voor Black Friday. Budget is beperkt tot €150/dag en de marge op het product is 28% — elke aankoop boven €38 is verlieslatend. Je kunt het je niet veroorloven om een week vrij te testen omdat de Black Friday periode te kort is. In dit geval start je direct met een Cost Cap op €35 (iets onder break-even), bouw je gecontroleerd naar 50 purchases, en switch je naar Bid Cap zodra de leerfase is afgerond — net op tijd voor de piekperiode.</div>
-        <div class="example-divider"></div>
-        <div class="example-full" style="color: var(--color-text-secondary);">In de normale situatie — ruime marge, geen tijdsdruk — is de open CBO in Laag 2 altijd de betere keuze. Je verzamelt dezelfde data, rondt dezelfde leerfase af, en bent een week eerder in Laag 3.</div>
+        <div class="rules-title">Wat te doen als Laag 3 niet goed opstart</div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 3 spendt niet of nauwelijks</strong> — normaal in de eerste 1–2 dagen. Als na dag 3 de spend nog steeds minimaal is: Cost Cap te strak — verhoog met €3–5 stappen. Laag 2 blijft actief.</span></div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 3 heeft na 7 dagen nog geen 10 purchases</strong> — Cost Cap structureel te strak voor de markt. Verhoog in stappen van €3–5 totdat het algoritme volume vindt. Laag 2 blijft actief totdat alle drie de transitiecriteria behaald zijn.</span></div>
+        <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>CPA in Laag 3 hoger dan de Cost Cap in de eerste 3 dagen</strong> — normaal gedrag tijdens kalibratie. Niet ingrijpen. Pas na dag 5–7 beoordelen of de CPA daalt.</span></div>
       </div>
       <div class="upgrade-banner">
-        <span style="font-weight:500;flex-shrink:0">Na Cost Cap tussenstap:</span>
-        <span>Zodra ≥ 50 purchases zijn behaald en de CPA stabiel is over ≥ 5 dagen, direct doorstromen naar Laag 3 (Bid Cap). Cost Cap campagne pauzeren — niet verwijderen.</span>
+        <span style="font-weight:500;flex-shrink:0">Transitiecriteria behaald:</span>
+        <span>Laag 3 ≥ 20 purchases, CPA stabiel ≥ 3 dagen onder Cost Cap, spend ≥ €300/dag → Laag 2 pauzeren. Laag 3 draait solo op €1.000/dag en kan verder schalen.</span>
       </div>
     </div>
   </div>
@@ -278,28 +273,30 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
     <div class="layer-header">
       <span class="layer-num">Laag 3</span>
       <span class="layer-title">Schaling op hoog budget</span>
-      <span class="layer-meta">Bid Cap campagne · €1.000/dag per campagne · harde bid per veiling · meerdere angles</span>
+      <span class="layer-meta">Cost Cap campagne · €1.000/dag bij lancering · transitieperiode met Laag 2 actief · meerdere angles bij schaling</span>
     </div>
     <div class="layer-body">
-      <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Elk bewezen product maximaal schalen met een harde grens op de veilingprijs — maximaal volume zonder margeverlies per conversie</span></div>
-      <div class="layer-row"><span class="layer-label">Setup</span><span class="layer-val">Nieuwe Bid Cap campagne per product · één ad set per campagne · startbudget €1.000/dag · Bid Cap ingesteld op basis van Laag 2 gemiddelde CPA</span></div>
-      <div class="layer-row"><span class="layer-label">Bid Cap</span><span class="layer-val">Instellen op Laag 2 gemiddelde CPA + 10–15% bij lancering (bijv. €35–37 bij een gemiddelde CPA van €32). Na 3–5 dagen kalibratie terugzetten naar het Laag 2 gemiddelde. Daarna niet meer aanpassen tenzij spend structureel achterblijft of CPA structureel boven target zit.</span></div>
-      <div class="layer-row"><span class="layer-label">Mechanisme</span><span class="layer-val">Meta biedt agressief in elke veiling maar betaalt nooit meer dan de ingestelde bid. Op dure dagen (weekend, feestdagen, hoge competitie) spendt de campagne minder of niet — dat is geen probleem, dat is het systeem dat werkt zoals bedoeld. Je betaalt nooit meer dan de gevalideerde CPA.</span></div>
-      <div class="layer-row"><span class="layer-label">Schaling</span><span class="layer-val">Hybride aanpak: budget verhogen binnen bewezen campagnes + nieuwe campagnes per angle toevoegen voor extra volume. Elke nieuwe campagne heeft een eigen creatieve invalshoek en dezelfde Bid Cap. Boven €2.000/dag per campagne liever een nieuwe campagne toevoegen dan verder verhogen.</span></div>
+      <div class="layer-row"><span class="layer-label">Doel</span><span class="layer-val">Elk bewezen product maximaal schalen op hoog budget — de Cost Cap is de rem per aankoop, het budget is bewust hoog zodat Meta hard kan spenden terwijl de CPA gegarandeerd binnen de gevalideerde grens blijft</span></div>
+      <div class="layer-row"><span class="layer-label">Setup</span><span class="layer-val">Nieuwe Cost Cap campagne per product · één ad set per campagne · startbudget €1.000/dag · Cost Cap ingesteld op Laag 2 gemiddelde CPA + 10–15% · Laag 2 campagne blijft actief tijdens de transitieperiode</span></div>
+      <div class="layer-row"><span class="layer-label">Cost Cap</span><span class="layer-val">Instellen op Laag 2 gemiddelde CPA + 10–15% bij lancering (bijv. €22–23 bij een gemiddelde CPA van €20). Dit geeft het algoritme ruimte om te kalibreren zonder direct verlieslatend te zijn. Daarna niet meer aanpassen tenzij spend structureel achterblijft of CPA structureel boven target zit.</span></div>
+      <div class="layer-row"><span class="layer-label">Mechanisme</span><span class="layer-val">Meta spendt zo veel mogelijk binnen het dagbudget maar betaalt gemiddeld nooit meer dan de ingestelde Cost Cap per aankoop. Op dure dagen (weekend, feestdagen, hoge competitie) spendt de campagne minder of niet — dat is geen probleem, dat is het systeem dat werkt zoals bedoeld. Je betaalt nooit meer dan de gevalideerde CPA.</span></div>
+      <div class="layer-row"><span class="layer-label">Transitieperiode</span><span class="layer-val">Laag 2 blijft actief naast Laag 3 totdat Laag 3 ≥ 20 purchases heeft behaald én de CPA stabiel is onder de Cost Cap over ≥ 3 aaneengesloten dagen én de dagelijkse spend richting €300+/dag groeit. Zolang Laag 3 onder €300/dag spendt is de overlap met Laag 2 verwaarloosbaar. Boven €300/dag: Laag 2 pauzeren.</span></div>
+      <div class="layer-row"><span class="layer-label">Schaling</span><span class="layer-val">Hybride aanpak: budget verhogen binnen bewezen campagnes + nieuwe campagnes per angle toevoegen voor extra volume. Elke nieuwe campagne heeft een eigen creatieve invalshoek en dezelfde Cost Cap. Boven €2.000/dag per campagne liever een nieuwe campagne toevoegen dan verder verhogen.</span></div>
     </div>
     <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
       <div class="rules-title" style="color:#122B52;">Opbouwschema budget — stap voor stap</div>
       <table style="font-size:11px;margin:4px 0 0;width:100%;border-collapse:collapse;">
         <thead><tr style="background:#D9E5F7;"><th style="padding:4px 8px;text-align:left;">Fase</th><th style="padding:4px 8px;text-align:left;">Setup</th><th style="padding:4px 8px;text-align:left;">Totaal budget</th><th style="padding:4px 8px;text-align:left;">Trigger</th></tr></thead>
         <tbody>
-          <tr><td style="padding:4px 8px;">Start</td><td style="padding:4px 8px;">1 campagne · €1.000/dag · Bid Cap = Laag 2 gem. +10–15%</td><td style="padding:4px 8px;">€1.000/dag</td><td style="padding:4px 8px;">≥ 50 purchases gehaald in Laag 2, CPA stabiel ≥ 5 dagen</td></tr>
-          <tr><td style="padding:4px 8px;">Fase 1</td><td style="padding:4px 8px;">Bid Cap terugzetten naar Laag 2 gemiddelde</td><td style="padding:4px 8px;">€1.000/dag</td><td style="padding:4px 8px;">Na 3–5 dagen kalibratie, spend stabiel</td></tr>
+          <tr><td style="padding:4px 8px;">Start — transitie</td><td style="padding:4px 8px;">1 Cost Cap campagne · €1.000/dag · Cost Cap = Laag 2 gem. +10–15% · Laag 2 blijft actief</td><td style="padding:4px 8px;">€1.225/dag (L2 + L3)</td><td style="padding:4px 8px;">≥ 50 purchases gehaald in Laag 2, CPA stabiel ≥ 5 dagen</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 1 — Laag 2 pauzeren</td><td style="padding:4px 8px;">Laag 2 pauzeren zodra Laag 3 ≥ 20 purchases heeft, CPA stabiel ≥ 3 dagen, spend ≥ €300/dag</td><td style="padding:4px 8px;">€1.000/dag</td><td style="padding:4px 8px;">Alle drie de transitiecriteria behaald</td></tr>
           <tr><td style="padding:4px 8px;">Fase 2</td><td style="padding:4px 8px;">Budget campagne 1 → €2.000/dag</td><td style="padding:4px 8px;">€2.000/dag</td><td style="padding:4px 8px;">CPA stabiel op €1.000, spend wordt volledig opgemaakt</td></tr>
-          <tr><td style="padding:4px 8px;">Fase 3</td><td style="padding:4px 8px;">Nieuwe campagne · €1.000/dag · nieuwe angle · zelfde Bid Cap</td><td style="padding:4px 8px;">€3.000/dag</td><td style="padding:4px 8px;">Campagne 1 stabiel op €2.000</td></tr>
+          <tr><td style="padding:4px 8px;">Fase 3</td><td style="padding:4px 8px;">Nieuwe campagne · €1.000/dag · nieuwe angle · zelfde Cost Cap</td><td style="padding:4px 8px;">€3.000/dag</td><td style="padding:4px 8px;">Campagne 1 stabiel op €2.000</td></tr>
           <tr><td style="padding:4px 8px;">Fase 4+</td><td style="padding:4px 8px;">Elke bewezen campagne → €2.000+ · nieuwe campagnes per angle</td><td style="padding:4px 8px;">€4.000–€10.000+/dag</td><td style="padding:4px 8px;">Per campagne afzonderlijk beoordelen</td></tr>
         </tbody>
       </table>
       <span style="display:block;margin-top:6px;font-size:11px;">Elke nieuwe campagne heeft een eigen creatieve invalshoek — niet dezelfde ads dupliceren, anders concurreren campagnes om hetzelfde publiek. Boven €2.000/dag per campagne: liever een nieuwe campagne toevoegen dan verder verhogen.</span>
+      <div style="margin-top:8px;padding:8px;background:#FFF3CD;border-left:3px solid #E8A000;border-radius:3px;font-size:11px;"><strong>Transitieperiode — wanneer Laag 2 pauzeren:</strong> Alle drie de volgende criteria moeten tegelijk behaald zijn: (1) Laag 3 heeft ≥ 20 purchases behaald, (2) CPA is stabiel onder de Cost Cap over ≥ 3 aaneengesloten dagen, (3) dagelijkse spend groeit richting €300+/dag. Zolang Laag 3 onder €300/dag spendt is de overlap met Laag 2 verwaarloosbaar — niet eerder pauzeren. Als Laag 3 na 7 dagen nog geen 10 purchases heeft: Cost Cap te strak — verhoog met €3–5 stappen, Laag 2 blijft actief.</div>
     </div>
 
     <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
@@ -307,13 +304,13 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       <table style="font-size:11px;margin:4px 0 0;width:100%;border-collapse:collapse;">
         <thead><tr style="background:#D9E5F7;"><th style="padding:4px 8px;text-align:left;">Situatie</th><th style="padding:4px 8px;text-align:left;">Wat het betekent</th><th style="padding:4px 8px;text-align:left;">Actie</th></tr></thead>
         <tbody>
-          <tr><td style="padding:4px 8px;">Campagne spendt structureel niet (meerdere dagen)</td><td style="padding:4px 8px;">Bid Cap te strak — veilingen zijn duurder dan de bid</td><td style="padding:4px 8px;">Bid Cap verhogen met €2–3. Als dit op goede dagen (ma–do) ook niet helpt: bid verder verhogen.</td></tr>
-          <tr><td style="padding:4px 8px;">CPA structureel 30%+ boven Laag 2 gemiddelde na dag 7</td><td style="padding:4px 8px;">Algoritme vindt geen efficiënt volume op die bid — markt is duurder geworden of creative is uitgewerkt</td><td style="padding:4px 8px;">Eerst nieuwe creatives testen. Daarna bid licht verhogen. Als geen verbetering: campagne pauzeren.</td></tr>
-          <tr><td style="padding:4px 8px;">ROAS structureel onder break-even na dag 7</td><td style="padding:4px 8px;">Campagne verlieslatend — Bid Cap werkt niet voor dit product op dit moment</td><td style="padding:4px 8px;">Campagne pauzeren. Laag 2 campagne heractiveren als vangnet. Evalueer of Laag 3 haalbaar is.</td></tr>
+          <tr><td style="padding:4px 8px;">Campagne spendt structureel niet (meerdere dagen)</td><td style="padding:4px 8px;">Cost Cap te strak — veilingen zijn duurder dan de ingestelde CPA</td><td style="padding:4px 8px;">Cost Cap verhogen met €3–5. Als dit op goede dagen (ma–do) ook niet helpt: verder verhogen. Laag 2 blijft actief zolang Laag 3 niet stabiel spendt.</td></tr>
+          <tr><td style="padding:4px 8px;">CPA structureel 30%+ boven Cost Cap na dag 7</td><td style="padding:4px 8px;">Algoritme vindt onvoldoende volume op die CPA — markt is duurder geworden of creative is uitgewerkt</td><td style="padding:4px 8px;">Eerst nieuwe creatives testen. Daarna Cost Cap licht verhogen. Als geen verbetering: campagne pauzeren en Laag 2 heractiveren.</td></tr>
+          <tr><td style="padding:4px 8px;">ROAS structureel onder break-even na dag 7</td><td style="padding:4px 8px;">Campagne verlieslatend — Cost Cap werkt niet voor dit product op dit moment</td><td style="padding:4px 8px;">Campagne pauzeren. Laag 2 campagne heractiveren als vangnet. Evalueer of Laag 3 haalbaar is.</td></tr>
           <tr><td style="padding:4px 8px;">Spend daalt op weekenddagen / feestdagen</td><td style="padding:4px 8px;">Normaal gedrag — veilingen zijn duurder, bid wordt niet gehaald</td><td style="padding:4px 8px;">Niet ingrijpen. Dit is het systeem dat werkt zoals bedoeld.</td></tr>
         </tbody>
       </table>
-      <span style="display:block;margin-top:6px;font-size:11px;">Volgorde van ingrijpen: (1) nieuwe creatives toevoegen → (2) Bid Cap licht verhogen → (3) campagne pauzeren en Laag 2 heractiveren. Nooit direct killen zonder eerst de bid aan te passen.</span>
+      <span style="display:block;margin-top:6px;font-size:11px;">Volgorde van ingrijpen: (1) nieuwe creatives toevoegen → (2) Cost Cap licht verhogen → (3) campagne pauzeren en Laag 2 heractiveren. Nooit direct killen zonder eerst de Cost Cap aan te passen.</span>
     </div>
 
     <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
@@ -337,10 +334,10 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
     <div class="rules-block" style="border-color:#8AAAD4;background:#EBF0F8;">
       <div class="rules-title" style="color:#122B52;">Regels voor deze laag</div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Nooit starten zonder ≥ 50 purchases</strong> — onder de 50 heeft het algoritme onvoldoende veilingdata en levert het chronisch onder, ongeacht het budget</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Bid Cap instellen op Laag 2 gemiddelde CPA + 10–15%</strong> — te strak instellen bij lancering zorgt voor onderlevering. Na 3–5 dagen kalibratie terugzetten naar het Laag 2 gemiddelde.</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Spend-dips op dure dagen zijn normaal</strong> — niet ingrijpen als de campagne op weekenddagen of feestdagen minder spendt. De Bid Cap werkt zoals bedoeld.</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 2 campagne gepauzeerd houden</strong> — niet verwijderen. Als Laag 3 om welke reden dan ook niet levert, is de open CBO het directe vangnet</span></div>
-      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Niet dagelijks ingrijpen op budget</strong> — het hoge budget is bewust. Laat Meta de spend zelf reguleren via de Bid Cap. Dagelijkse aanpassingen verstoren het algoritme</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Cost Cap instellen op Laag 2 gemiddelde CPA + 10–15%</strong> — te strak instellen bij lancering zorgt voor onderlevering in de eerste dagen. Daarna niet meer aanpassen tenzij spend structureel achterblijft of CPA structureel boven target zit.</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Laag 2 blijft actief tijdens de transitieperiode</strong> — niet pauzeren totdat Laag 3 ≥ 20 purchases heeft, CPA stabiel is ≥ 3 dagen én spend ≥ €300/dag bereikt. Laag 2 is het vangnet én de omzetbescherming tijdens de leerfase van Laag 3</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Spend-dips op dure dagen zijn normaal</strong> — niet ingrijpen als de campagne op weekenddagen of feestdagen minder spendt. De Cost Cap werkt zoals bedoeld.</span></div>
+      <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Niet dagelijks ingrijpen op budget</strong> — het hoge budget is bewust. Laat Meta de spend zelf reguleren via de Cost Cap. Dagelijkse aanpassingen verstoren het algoritme</span></div>
       <div class="rule-row"><span class="rule-icon">◆</span><span class="rule-text"><strong>Schaling via meerdere campagnes per angle</strong> — boven €2.000/dag liever een nieuwe campagne met eigen creatieve invalshoek toevoegen dan het budget van één campagne eindeloos verhogen</span></div>
     </div>
   </div>
@@ -359,7 +356,7 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       </div>
     </div>
     <hr class="insight-divider">
-    <div class="insight-full">Laag 2 heeft twee doelen tegelijk: de CPA in kaart brengen én de leerfase afronden. Zodra beide zijn bereikt, heeft het algoritme alle data die het nodig heeft om in Laag 3 op hoog budget efficiënt te bieden. De open CBO is de snelste en meest directe route — geen tussenstap nodig tenzij de situatie dat specifiek vereist.</div>
+    <div class="insight-full">Laag 2 heeft twee doelen tegelijk: de CPA in kaart brengen én de leerfase afronden. Zodra beide zijn bereikt, heeft het algoritme alle data die het nodig heeft om in Laag 3 op hoog budget efficiënt te bieden via de Cost Cap. De transitieperiode — waarbij Laag 2 en Laag 3 tijdelijk naast elkaar draaien — beschermt de omzet terwijl Laag 3 kalibreert. Zolang Laag 3 onder €300/dag spendt is de overlap verwaarloosbaar.</div>
   </div>
 
   <!-- TIKTOK VS META -->
@@ -372,11 +369,11 @@ tr:nth-child(even) td { background: var(--color-background-secondary); }
       </div>
       <div class="diff-item">
         <span class="diff-label diff-label-meta">Meta — Laag 3</span>
-        <span class="diff-val">Bid Cap campagne op €10.000/dag. Meta heeft de leerfase al afgerond in Laag 2. In Laag 3 is het doel puur volume pakken met een harde veilinggrens. Budget direct hoog, Bid Cap als rem.</span>
+        <span class="diff-val">Cost Cap campagne op €1.000/dag bij lancering (oplopend naar €10.000+). Meta heeft de leerfase al afgerond in Laag 2. In Laag 3 is het doel puur volume pakken terwijl de Cost Cap de gemiddelde CPA per aankoop bewaakt. Laag 2 blijft actief tijdens de transitieperiode als vangnet.</span>
       </div>
     </div>
     <hr class="insight-divider">
-    <div class="insight-full">Op TikTok fungeert de Cost Cap als zowel leer- als schaalinstrument in één fase. Op Meta zijn validatie (Laag 2) en maximale schaling (Laag 3) bewust gesplitst. De open CBO geeft het algoritme volledige vrijheid om te leren, waarna de Bid Cap op hoog budget die kennis exploiteert zonder dagelijkse interventie.</div>
+    <div class="insight-full">Op beide platforms fungeert de Cost Cap als het schaalinstrument in Laag 3 — maar de aanpak verschilt. Op TikTok is de Cost Cap tegelijk het leer- en schaalinstrument in één fase. Op Meta zijn validatie (Laag 2, open CBO) en schaling (Laag 3, Cost Cap) bewust gesplitst. Het verschil zit in de transitieperiode: op Meta draait Laag 2 tijdelijk naast Laag 3 om omzetverlies tijdens de kalibratiefase te voorkomen.</div>
   </div>
 
   <!-- NO SURF -->
